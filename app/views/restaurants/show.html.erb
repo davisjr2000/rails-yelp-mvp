@@ -1,3 +1,17 @@
 <h1><%= @restaurant.name %></h1>
 <h2><%= @restaurant.category.capitalize %> restaurant at <%= @restaurant.address %></h2>
 <h3> <i class="fas fa-phone"></i> <%= @restaurant.phone_number %></h3>
+<h4><%= link_to "What's your opinion?",new_restaurant_review_path(@restaurant) %></h4>
+<% if @restaurant.reviews.length.zero? %>
+ <h4>Sorry, there are no reviews. Add one!</h4>
+<% else %>
+<h4> What our customers have to say</h4>
+<% @restaurant.reviews.each do |review| %>
+<div class="customer_rating">
+  <h2>"<%= review.content %>"</h2>
+  <% review.rating.to_i.times do %>
+    <%= image_tag("robertoestrela.png" , class: "roberto") %>
+  <% end %>
+</div>
+<% end %>
+<% end %>

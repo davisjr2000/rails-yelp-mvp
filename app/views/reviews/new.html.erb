@@ -1,5 +1,63 @@
-<h1>Test</h1>
+<h1>Write a review for <%= @restaurant.name.capitalize %></h1>
 <%= simple_form_for [@restaurant, @review] do |f| %>
   <%= f.input :content %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
+  <% rating = 5 %>
+  <%= f.input :rating, :as => :hidden, :input_html => { :value => "#{rating}", :id => "robertorating" } %>
+<h2>Rate Us!</h2>
+<div class="images">
+  <%= image_tag("robertoestrela_pb.png" , class: "roberto", id: "roberto1", onclick: "change1()") %>
+  <%= image_tag("robertoestrela_pb.png" , class: "roberto", id: "roberto2", onclick: "change2()") %>
+  <%= image_tag("robertoestrela_pb.png" , class: "roberto", id: "roberto3", onclick: "change3()") %>
+  <%= image_tag("robertoestrela_pb.png" , class: "roberto", id: "roberto4", onclick: "change4()") %>
+  <%= image_tag("robertoestrela_pb.png" , class: "roberto", id: "roberto5", onclick: "change5()") %>
+</div>
+<%= f.submit "Add a review", class: "btn btn-primary" %>
 <% end %>
+<script>
+  const roberto1 = document.getElementById("roberto1")
+  const roberto2 = document.getElementById("roberto2")
+  const roberto3 = document.getElementById("roberto3")
+  const roberto4 = document.getElementById("roberto4")
+  const roberto5 = document.getElementById("roberto5")
+  const robertorating = document.getElementById('robertorating')
+  function change1(){
+    roberto1.setAttribute('style','filter: sepia(100%);');
+    roberto2.setAttribute('style','filter: none;');
+    roberto3.setAttribute('style','filter: none;');
+    roberto4.setAttribute('style','filter: none;');
+    roberto5.setAttribute('style','filter: none;');
+    robertorating.value = 1
+  }
+  function change2(){
+    roberto1.setAttribute('style','filter: sepia(100%);');
+    roberto2.setAttribute('style','filter: sepia(100%);');
+    roberto3.setAttribute('style','filter: none;');
+    roberto4.setAttribute('style','filter: none;');
+    roberto5.setAttribute('style','filter: none;');
+    robertorating.value = 2
+  }
+  function change3(){
+    roberto1.setAttribute('style','filter: sepia(100%);');
+    roberto2.setAttribute('style','filter: sepia(100%);');
+    roberto3.setAttribute('style','filter: sepia(100%);');
+    roberto4.setAttribute('style','filter: none;');
+    roberto5.setAttribute('style','filter: none;');
+    robertorating.value = 3
+  }
+  function change4(){
+    roberto1.setAttribute('style','filter: sepia(100%);');
+    roberto2.setAttribute('style','filter: sepia(100%);');
+    roberto3.setAttribute('style','filter: sepia(100%);');
+    roberto4.setAttribute('style','filter: sepia(100%);');
+    roberto5.setAttribute('style','filter: none;');
+    robertorating.value = 4
+  }
+  function change5(){
+    roberto1.setAttribute('style','filter: sepia(100%);');
+    roberto2.setAttribute('style','filter: sepia(100%);');
+    roberto3.setAttribute('style','filter: sepia(100%);');
+    roberto4.setAttribute('style','filter: sepia(100%);');
+    roberto5.setAttribute('style','filter: sepia(100%);');
+    robertorating.value = 1
+  }
+</script>
